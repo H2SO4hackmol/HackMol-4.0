@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="16dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginVertical="6dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/hp_image"
+            android:src="@drawable/efg"/>
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_toEndOf="@+id/hp_image"
+              android:layout_marginStart="25dp"
+              android:layout_marginTop="10dp">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name : "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/hp_image"
+            android:layout_toEndOf="@id/hp_image"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/hp_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="United"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_toRightOf="@id/name"
+            android:layout_toEndOf="@id/name"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"/>
+               </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address : "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@id/hp_image"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/hp_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Civil lines prayagraj"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_toRightOf="@id/address"
+            android:layout_below="@id/hp_name"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"/>
+
+          </LinearLayout> </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
