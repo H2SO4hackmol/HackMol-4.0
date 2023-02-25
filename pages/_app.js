@@ -5,6 +5,7 @@ import { auth } from "./firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect, useState } from "react";
+import Footer from "../Components/Footer";
 // import { getAuth } from "firebase/auth";
 
 export default function App({ Component, pageProps }) {
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Navbar user={user} login={login} logout={logout} />
       <Component {...pageProps} user={user} uid={uid ? uid : null} />
+      <Footer />
     </>
   );
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = ({ user, login, logout }) => {
   return (
     <>
-      <div
+      {/* <div
         className={`sticky top-0 bg-gray-500 z-10 flex flex-col md:flex-row md:justify-start justify-center items-center py-2 overflow-hidden`}
       >
         <style jsx>{`
@@ -68,7 +68,46 @@ const Navbar = ({ user, login, logout }) => {
             </button>
           )}
         </div>
-      </div>
+      </div> */}
+
+      <nav className="navbar navbar-expand-sm navbar-dark bg-danger fixed-top">
+        <Link
+          href="/"
+          className="navbar-brand"
+          style={{ textDecoration: "none" }}
+        >
+          HETSO
+        </Link>
+        <span className="navbar-text">Customer's Health is our Aim</span>
+        <button
+          type="button"
+          className="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#myMenu"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="myMenu">
+          <ul className="navbar-nav navi">
+            <li className="nav-item text-white z-10" id="ol">
+              <Link
+                href="/"
+                className="navbar-brand"
+                style={{ textDecoration: "none" }}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a href="#about">About</a>
+            </li>
+            <li className="nav-item">
+              <a href="#Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </>
   );
 };
