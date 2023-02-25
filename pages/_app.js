@@ -5,17 +5,18 @@ import { auth } from "./firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect, useState } from "react";
-import Footer from "../Components/Footer";
+import Head from "next/head";
 // import { getAuth } from "firebase/auth";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }) {
   const googleAuth = new GoogleAuthProvider();
   const login = async () => {
     try {
       const res = await signInWithPopup(auth, googleAuth);
-      console.log(res);
+      // console.log(res.user.email);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   const logout = async () => {
@@ -35,9 +36,19 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <Script
+          src="https://kit.fontawesome.com/e20sdfsd9.js"
+          crossOrigin="anonymous"
+        ></Script>
+      </Head>
       <Navbar user={user} login={login} logout={logout} />
-      <Component {...pageProps} user={user} uid={uid ? uid : null} />
-      <Footer />
+      <Component
+        {...pageProps}
+        user={user}
+        uid={uid ? uid : null}
+        login={login}
+      />
     </>
   );
 }

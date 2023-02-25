@@ -4,8 +4,8 @@ import Link from "next/link";
 const Navbar = ({ user, login, logout }) => {
   return (
     <>
-      {/* <div
-        className={`sticky top-0 bg-gray-500 z-10 flex flex-col md:flex-row md:justify-start justify-center items-center py-2 overflow-hidden`}
+      <div
+        className={`sticky top-0 bg-danger z-10 flex flex-col md:flex-row md:justify-start justify-center items-center py-2 overflow-hidden`}
       >
         <style jsx>{`
         li:hover{
@@ -21,12 +21,32 @@ const Navbar = ({ user, login, logout }) => {
             }}
           >
             <ul className="items-center">
-              <li>myHospital.com</li>
+              <li className="text-bold-2xl navbar-brand">HETSO</li>
             </ul>
           </Link>
         </div>
         <div>
           <ul className="flex space-x-2 text-md items-center">
+            <Link
+              href="/#about"
+              style={{
+                cursor: "pointer",
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li className="ml-[10px]">About Us</li>
+            </Link>
+            <Link
+              href="/#Contact"
+              style={{
+                cursor: "pointer",
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li className="ml-[10px]">Contact Us</li>
+            </Link>
             <Link
               href="/Add"
               style={{
@@ -36,16 +56,6 @@ const Navbar = ({ user, login, logout }) => {
               }}
             >
               <li className="ml-[10px]">Add details</li>
-            </Link>
-            <Link
-              href="/Contact"
-              style={{
-                cursor: "pointer",
-                textDecoration: "none",
-                color: "white",
-              }}
-            >
-              <li className="ml-[10px]">Contact Us</li>
             </Link>
           </ul>
         </div>
@@ -68,12 +78,14 @@ const Navbar = ({ user, login, logout }) => {
             </button>
           )}
         </div>
-      </div> */}
+      </div>
 
-      <nav className="navbar navbar-expand-sm navbar-dark bg-danger fixed-top">
+      {/* <nav
+        className={`navbar navbar-expand-sm navbar-dark bg-danger fixed-top`}
+      >
         <Link
           href="/"
-          className="navbar-brand"
+          className={styles.navbarBrand}
           style={{ textDecoration: "none" }}
         >
           HETSO
@@ -89,25 +101,33 @@ const Navbar = ({ user, login, logout }) => {
         </button>
 
         <div className="collapse navbar-collapse" id="myMenu">
-          <ul className="navbar-nav navi">
-            <li className="nav-item text-white z-10" id="ol">
-              <Link
-                href="/"
-                className="navbar-brand"
-                style={{ textDecoration: "none" }}
-              >
+          <ul className={`${styles.navi} navbar-nav`}>
+            <Link
+              href="/"
+              // className={styles.navbarBrand}
+              style={{ textDecoration: "none" }}
+            >
+              <li className={styles.navItem} id="ol">
                 Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="#about">About</a>
-            </li>
-            <li className="nav-item">
-              <a href="#Contact">Contact</a>
-            </li>
+              </li>
+            </Link>
+            <Link
+              href="#about"
+              className={styles.navbarBrand}
+              style={{ textDecoration: "none" }}
+            >
+              <li className={styles.navItem}>About</li>
+            </Link>
+            <Link
+              href="#Contact"
+              className={styles.navbarBrand}
+              style={{ textDecoration: "none" }}
+            >
+              <li className={styles.navItem}>Contact</li>
+            </Link>
           </ul>
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 };

@@ -10,8 +10,9 @@ import {
   getStorage,
   getDownloadURL,
 } from "firebase/storage";
+import Footer from "../Components/Footer";
 
-const Add = ({ user, uid }) => {
+const Add = ({ user, uid, login }) => {
   const database = getDatabase();
 
   const [name, setName] = useState("");
@@ -287,327 +288,353 @@ const Add = ({ user, uid }) => {
   return (
     <>
       <Head>
-        <title>myHospital.com | Add details</title>
+        <title>HETSO | Add details</title>
       </Head>
       {user && (
-        <div className="container mx-auto my-9">
-          <ToastContainer
-            position="top-left"
-            autoClose={5000}
-            hideProgressBar={true}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-          <h1 className="text-center">Add/Update your details here</h1>
-          <fieldset className="my-5">
-            <legend>Hospital Details</legend>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2">
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    Name
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    value={name}
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
+        <div>
+          <div className="container mx-auto my-9">
+            <ToastContainer
+              position="top-left"
+              autoClose={5000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+            <h1 className="text-center">Add/Update your details here</h1>
+            <fieldset className="my-5">
+              <legend>Hospital Details</legend>
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="name"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Name
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      value={name}
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="px-2 w-1/2">
-                <div className="mb-4">
-                  <label
-                    htmlFor="district"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    District
-                  </label>
-                  <input
-                    type="text"
-                    onChange={handleChange}
-                    value={district}
-                    id="district"
-                    name="district"
-                    required
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="district"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      District
+                    </label>
+                    <input
+                      type="text"
+                      onChange={handleChange}
+                      value={district}
+                      id="district"
+                      name="district"
+                      required
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
                  focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="px-2 w-full">
-              <div className="mb-4">
-                <label
-                  htmlFor="address"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  Address
-                </label>
-                <textarea
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  name="address"
-                  onChange={handleChange}
-                  value={address}
-                  id="address"
-                  cols="30"
-                  rows="2"
-                  required
-                ></textarea>
-              </div>
-            </div>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2">
-                <label
-                  htmlFor="stat"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  State
-                </label>
-                <input
-                  type="text"
-                  onChange={handleChange}
-                  value={stat}
-                  id="stat"
-                  name="stat"
-                  required
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-              <div className="px-2 w-1/2">
-                <label
-                  htmlFor="loc"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  Location link
-                </label>
-                <input
-                  type="text"
-                  onChange={handleChange}
-                  value={loc}
-                  id="loc"
-                  name="loc"
-                  required
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-            </div>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2 my-2">
-                <label
-                  htmlFor="image"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  Image
-                </label>
-                <input
-                  type="file"
-                  onChange={handleImageChange}
-                  id="image"
-                  name="image"
-                  required
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-              <div className="px-2 w-1/2 my-[40px]">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={handleImageUpload}
-                >
-                  Upload image
-                </button>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="btn btn-primary mx-[50%]"
-              onClick={handleHospitalSubmit}
-            >
-              Update
-            </button>
-          </fieldset>
-
-          <fieldset className="my-5">
-            <legend>Ward Details</legend>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2">
+              <div className="px-2 w-full">
                 <div className="mb-4">
                   <label
-                    htmlFor="wardtype"
+                    htmlFor="address"
                     className="leading-7 text-sm text-gray-600"
                   >
-                    Ward type
+                    Address
+                  </label>
+                  <textarea
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    name="address"
+                    onChange={handleChange}
+                    value={address}
+                    id="address"
+                    cols="30"
+                    rows="2"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2">
+                  <label
+                    htmlFor="stat"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    State
                   </label>
                   <input
-                    onChange={handleChange}
-                    value={wardtype}
                     type="text"
-                    id="wardtype"
-                    name="wardtype"
+                    onChange={handleChange}
+                    value={stat}
+                    id="stat"
+                    name="stat"
+                    required
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+                </div>
+                <div className="px-2 w-1/2">
+                  <label
+                    htmlFor="loc"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Location link
+                  </label>
+                  <input
+                    type="text"
+                    onChange={handleChange}
+                    value={loc}
+                    id="loc"
+                    name="loc"
                     required
                     className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
-              <div className="px-2 w-1/2">
-                <div className="mb-4">
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2 my-2">
                   <label
-                    htmlFor="beds"
+                    htmlFor="image"
                     className="leading-7 text-sm text-gray-600"
                   >
-                    Beds
+                    Image
+                  </label>
+                  <input
+                    type="file"
+                    onChange={handleImageChange}
+                    id="image"
+                    name="image"
+                    required
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+                </div>
+                <div className="px-2 w-1/2 my-[40px]">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleImageUpload}
+                  >
+                    Upload image
+                  </button>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="btn btn-primary mx-[50%]"
+                onClick={handleHospitalSubmit}
+              >
+                Update
+              </button>
+            </fieldset>
+
+            <fieldset className="my-5">
+              <legend>Ward Details</legend>
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="wardtype"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Ward type
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      value={wardtype}
+                      type="text"
+                      id="wardtype"
+                      name="wardtype"
+                      required
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
+                </div>
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="beds"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Beds
+                    </label>
+                    <input
+                      type="number"
+                      value={beds}
+                      required
+                      onChange={handleChange}
+                      id="beds"
+                      name="beds"
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
+                 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="px-2 w-full">
+                <div className="mb-4">
+                  <label
+                    htmlFor="charges"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Bed Charge
                   </label>
                   <input
                     type="number"
-                    value={beds}
-                    required
+                    value={charges}
+                    id="charges"
                     onChange={handleChange}
-                    id="beds"
-                    name="beds"
+                    name="charges"
                     className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
                  focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
-            </div>
-            <div className="px-2 w-full">
-              <div className="mb-4">
-                <label
-                  htmlFor="charges"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  Bed Charge
-                </label>
-                <input
-                  type="number"
-                  value={charges}
-                  id="charges"
-                  onChange={handleChange}
-                  name="charges"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
-                 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-            </div>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2">
-                <div className="mb-4">
-                  <label
-                    htmlFor="available"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    Beds Available
-                  </label>
-                  <input
-                    type="number"
-                    onChange={handleChange}
-                    value={available}
-                    id="available"
-                    name="available"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="available"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Beds Available
+                    </label>
+                    <input
+                      type="number"
+                      onChange={handleChange}
+                      value={available}
+                      id="available"
+                      name="available"
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <button
-              type="button"
-              className="btn btn-primary mx-[50%]"
-              onClick={handleWardSubmit}
-            >
-              Update
-            </button>
-          </fieldset>
+              <button
+                type="button"
+                className="btn btn-primary mx-[50%]"
+                onClick={handleWardSubmit}
+              >
+                Update
+              </button>
+            </fieldset>
 
-          <fieldset className="my-5">
-            <legend>Doctor Details</legend>
-            <div className="mx-auto flex">
-              <div className="px-2 w-1/2">
-                <div className="mb-4">
-                  <label
-                    htmlFor="username"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    Name
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    value={username}
-                    type="text"
-                    id="username"
-                    name="username"
-                    required
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
+            <fieldset className="my-5">
+              <legend>Doctor Details</legend>
+              <div className="mx-auto flex">
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="username"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Name
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      value={username}
+                      type="text"
+                      id="username"
+                      name="username"
+                      required
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
+                </div>
+                <div className="px-2 w-1/2">
+                  <div className="mb-4">
+                    <label
+                      htmlFor="email"
+                      className="leading-7 text-sm text-gray-600"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      onChange={handleChange}
+                      value={email}
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
+                 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="px-2 w-1/2">
+              <div className="px-2 w-full">
                 <div className="mb-4">
                   <label
-                    htmlFor="email"
+                    htmlFor="specialization"
                     className="leading-7 text-sm text-gray-600"
                   >
-                    Email
+                    Specialization
                   </label>
                   <input
-                    type="email"
+                    type="text"
+                    value={specialization}
                     onChange={handleChange}
-                    value={email}
-                    id="email"
-                    name="email"
                     required
+                    id="specialization"
+                    name="specialization"
                     className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
                  focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
               </div>
-            </div>
-            <div className="px-2 w-full">
-              <div className="mb-4">
-                <label
-                  htmlFor="specialization"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  Specialization
-                </label>
-                <input
-                  type="text"
-                  value={specialization}
-                  onChange={handleChange}
-                  required
-                  id="specialization"
-                  name="specialization"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2
-                 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-            </div>
-            <button
-              type="button"
-              className="btn btn-primary mx-[50%]"
-              onClick={handleDoctorSubmit}
-            >
-              Update
-            </button>
-          </fieldset>
+              <button
+                type="button"
+                className="btn btn-primary mx-[50%]"
+                onClick={handleDoctorSubmit}
+              >
+                Update
+              </button>
+            </fieldset>
+          </div>
+          <Footer />
         </div>
       )}
       {!user && (
-        <div>
-          <h2 className="text-center">
-            Please login to add/update your details
-          </h2>
+        <div
+          style={{
+            backgroundImage: `url(addDetails.jpg)`,
+            backgroundSize: "cover",
+            width: "100%",
+            height: "89vh",
+          }}
+        >
+          <button
+            className="btn btn-success mr-4 mx-15"
+            onClick={login}
+            style={{
+              position: "absolute",
+              top: 35 + "vh",
+              left: 28 + "%",
+              width: 100 + "vh",
+              backgroundColor: "red",
+              height: 20 + "vh",
+              borderRadius: 30 + "px",
+              boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)",
+            }}
+          >
+            <h2>Please login to add/update your details</h2>
+          </button>
+          <div className="fixed bottom-0" style={{ width: "100%" }}>
+            <Footer />
+          </div>
         </div>
       )}
     </>
